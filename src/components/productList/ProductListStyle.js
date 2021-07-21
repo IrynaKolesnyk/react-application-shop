@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const PhoneListStyle = styled.ul`
+export const ProductListStyle = styled.ul`
   display: flex;
   flex-wrap: wrap;
 `;

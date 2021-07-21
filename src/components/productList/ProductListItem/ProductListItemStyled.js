@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-export const PhoneListItemStyled = styled.li`
+export const ProductListItemStyled = styled.li`
   width: 100%;
   padding: 10px;
   min-height: 600px;
 
-  .phoneListItemWrapper {
+  .productListItemWrapper {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -15,42 +15,42 @@ export const PhoneListItemStyled = styled.li`
     border: 1px solid ${(props) => props.colors.darkColors.secondary};
   }
 
-  .phoneListItemTitle {
+  .productListItemTitle {
     margin-bottom: 20px;
     text-align: center;
   }
 
-  .phoneListItemImg {
+  .productListItemImg {
     height: 200px;
     margin-bottom: 20px;
     object-fit: contain;
   }
 
-  .phoneListItemSale {
+  .productListItemSale {
     font-weight: 500;
   }
 
-  .phoneListItemDescription {
+  .productListItemDescription {
     margin-bottom: 20px;
     flex-grow: 1;
   }
 
-  .phoneListItemName {
+  .productListItemName {
     font-weight: 700px;
   }
 
-  .phoneListItemPrice {
+  .productListItemPrice {
     margin-bottom: 20px;
     font-weight: 500;
   }
 
-  .phoneListItemButtonGroup {
+  .productListItemButtonGroup {
     display: flex;
     align-items: center;
     width: 100%;
   }
 
-  .phoneListItemButtonGroup button {
+  .productListItemButtonGroup button {
     width: 50%;
     height: 30px;
 
