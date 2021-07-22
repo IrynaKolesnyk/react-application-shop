@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import data from "../../data";
+import CartList from "../cartList/CartList";
 
 import ProductList from "../productList/ProductList";
 import Section from "../Section";
@@ -31,6 +32,13 @@ class Main extends Component {
   render() {
     return (
       <MainStyled>
+        <Section title="Корзина">
+          <CartList
+            cart={this.state.cart}
+            removeFromCart={this.removeFromCart}
+            removeAllFromCart={this.removeAllFromCart}
+          />
+        </Section>
         <Section title="Мобильные телефоны">
           <ProductList products={data.phones} addToCart={this.addToCart} />
         </Section>
