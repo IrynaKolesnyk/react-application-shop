@@ -2,8 +2,12 @@ import React from "react";
 import colors from "../../../styles/colors";
 import { ProductListItemStyled } from "./ProductListItemStyled";
 
-const ProductsListItem = ({ product }) => {
-  const { name, description, price, image, isSale } = product;
+const ProductsListItem = ({ product, addToCart }) => {
+  const { name, description, price, image, isSale, id } = product;
+
+  const addProduct = () => {
+    addToCart({ name, price, id });
+  };
   return (
     <ProductListItemStyled colors={colors}>
       <div className="phoneListItemWrapper">
@@ -17,16 +21,11 @@ const ProductsListItem = ({ product }) => {
           <span className="productListItemName">Description: </span>
           {description}
         </p>
-        {/* <ul>
-          {product.colors.map((color) => (
-            <li key={color}>{color}</li>
-          ))}
-        </ul> */}
         <p className="productListItemPrice">
           Price: <span className="productListItemName">{price}</span>
         </p>
         <div className="productListItemButtonGroup">
-          <button type="button" className="addToCartBtn">
+          <button type="button" className="addToCartBtn" onClick={addProduct}>
             Add to Cart
           </button>
           <button type="button" className="detailsBtn">

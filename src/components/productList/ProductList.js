@@ -2,11 +2,15 @@ import React from "react";
 import ProductsListItem from "./ProductListItem/ProductsListItem";
 import { ProductListStyle } from "./ProductListStyle";
 
-const ProductList = ({ products }) => {
+const ProductList = ({ products, addToCart }) => {
   return (
     <ProductListStyle>
       {products.map((product) => (
-        <ProductsListItem product={product} key={product.id} />
+        <ProductsListItem
+          product={product}
+          key={product.id}
+          addToCart={addToCart}
+        />
       ))}
     </ProductListStyle>
   );
