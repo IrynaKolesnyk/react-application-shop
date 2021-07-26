@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import data from "../../data";
+import AdvForm from "../admin/AdvForm";
 import CartList from "../cartList/CartList";
 
 import ProductList from "../productList/ProductList";
@@ -9,6 +10,13 @@ import { MainStyled } from "./MainStyled";
 class Main extends Component {
   state = {
     cart: [],
+    ...data,
+  };
+
+  addNewProduct = (product) => {
+    this.setState((prevState) => ({
+      [product.category]: [...prevState[product.category], product],
+    }));
   };
 
   addToCart = (product) => {
@@ -32,6 +40,9 @@ class Main extends Component {
   render() {
     return (
       <MainStyled>
+        <Section title="Администрирование">
+          <AdvForm addNewProduct={this.addNewProduct} />
+        </Section>
         <Section title="Корзина">
           <CartList
             cart={this.state.cart}
@@ -40,10 +51,16 @@ class Main extends Component {
           />
         </Section>
         <Section title="Мобильные телефоны">
-          <ProductList products={data.phones} addToCart={this.addToCart} />
+          <ProductList
+            products={this.state.phones}
+            addToCart={this.addToCart}
+          />
         </Section>
         <Section title="Ноутбуки">
-          <ProductList products={data.laptops} addToCart={this.addToCart} />
+          <ProductList
+            products={this.state.laptops}
+            addToCart={this.addToCart}
+          />
         </Section>
       </MainStyled>
     );

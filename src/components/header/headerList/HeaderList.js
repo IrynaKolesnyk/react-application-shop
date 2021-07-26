@@ -5,13 +5,15 @@ import { HeaderListStyled } from "./HeaderListStyled";
 const HeaderList = ({ language = "en" }) => {
   return (
     <HeaderListStyled colors={colors}>
-      {mainRoutes.map((headerItem) => (
-        <li key={headerItem.path} className="headerListItem">
-          <a href={headerItem.path} className="headerListLink">
-            {headerItem.name[language]}
-          </a>
-        </li>
-      ))}
+      <ul className="navigationList">
+        {mainRoutes.map((headerItem) => (
+          <li key={headerItem.path} className="navigationListItem">
+            <a href={headerItem.path} className="navigationListItemAnchor">
+              {headerItem.name[language]}
+            </a>
+          </li>
+        ))}
+      </ul>
     </HeaderListStyled>
   );
 };
