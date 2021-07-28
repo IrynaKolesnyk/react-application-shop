@@ -20,7 +20,7 @@ class Modal extends Component {
   handleClick = () => this.props.onClick();
 
   handleBackdropClick = (event) => {
-    if (event.target !== event.currentTarget) return false;
+    if (event.target !== event.currentTarget) return;
     this.props.onClick();
   };
   render() {
