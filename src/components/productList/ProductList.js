@@ -2,7 +2,7 @@ import React from "react";
 import ProductsListItem from "./ProductListItem/ProductsListItem";
 import { ProductListStyle } from "./ProductListStyle";
 
-const ProductList = ({ products, addToCart }) => {
+const ProductList = ({ products = [], addToCart }) => {
   return (
     <ProductListStyle>
       {products.map((product) => (

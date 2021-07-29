@@ -1,10 +1,7 @@
 import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
+import mainRoutes from "../../routes/mainRoutes";
 import { getAllAdvByCategory } from "../../services/Api";
-import AdvForm from "../admin/AdvForm";
-import CartList from "../cartList/CartList";
-
-import ProductList from "../productList/ProductList";
-import Section from "../Section";
 import { MainStyled } from "./MainStyled";
 
 const getDataByCategory = async (category) => {
@@ -60,28 +57,16 @@ class Main extends Component {
   render() {
     return (
       <MainStyled>
-        <Section title="Администрирование">
-          <AdvForm addNewProduct={this.addNewProduct} />
-        </Section>
-        <Section title="Корзина">
-          <CartList
-            cart={this.state.cart}
-            removeFromCart={this.removeFromCart}
-            removeAllFromCart={this.removeAllFromCart}
-          />
-        </Section>
-        <Section title="Мобильные телефоны">
-          <ProductList
-            products={this.state.products.phones}
-            addToCart={this.addToCart}
-          />
-        </Section>
-        <Section title="Ноутбуки">
-          <ProductList
-            products={this.state.products.laptops}
-            addToCart={this.addToCart}
-          />
-        </Section>
+        <Switch>
+          {mainRoutes.map((route) => (
+            <Route
+              path={route.path}
+              exact={route.exact}
+              component={route.component}
+              key={route.path}
+            />
+          ))}
+        </Switch>
       </MainStyled>
     );
   }
