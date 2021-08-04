@@ -6,13 +6,14 @@ import { MainStyled } from "./MainStyled";
 
 const getDataByCategory = async (category) => {
   const response = await getAllAdvByCategory(category);
-  if (response) {
-    return Object.keys(response.data).map((key) => ({
-      id: key,
-      ...response.data[key],
-    }));
-  }
-  return [];
+  return response;
+  // if (response) {
+  //   return Object.keys(response.data).map((key) => ({
+  //     id: key,
+  //     ...response.data[key],
+  //   }));
+  // }
+  // return [];
 };
 
 class Main extends Component {
